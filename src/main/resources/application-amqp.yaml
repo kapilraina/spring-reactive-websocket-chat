@@ -1,0 +1,42 @@
+
+spring:
+  cloud:
+    stream:
+      function:
+        definition: globalchatpubchannel;globalchatsubchannel
+      source: globalchatpubchannel;globalchatsubchannel
+      bindings:
+        globalchatpubchannel-out-0:
+          binder: rabbit-binder
+          destination: ex.globalchatexchange
+          content-type: application/json
+          #group: q.globalchatqueue
+        globalchatsubchannel-in-0:
+          binder: rabbit-binder
+          destination: ex.globalchatexchange
+          content-type: application/json
+          group: q.globalchatqueue
+      rabbit:
+        bindings:
+          globalchatpubchannel-out-0:
+            producer:
+              exchangeType: direct
+              bindQueue: false
+              declareExchange: false
+              queueNameGroupOnly: true
+          globalchatsubchannel-in-0:
+            consumer:
+              bindQueue: false
+              exchangeType: direct
+              declareExchange: false
+              queueNameGroupOnly: true
+
+      binders:
+        rabbit-binder:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: rabbitmq-master
+                port: 5672
+

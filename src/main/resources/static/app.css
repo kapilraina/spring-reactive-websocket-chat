@@ -1,0 +1,135 @@
+body{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+div.events {
+    overflow: scroll;
+    height: 100px;
+    overflow-y: visible;
+    font-size: 8px;
+    background-color: gray;
+  }
+
+  div.messagescontainer {
+    overflow: scroll;
+    height: 400px;
+    background: fixed;    
+    width: 80%;
+    background: url("cbg.png");
+    background-size: cover;
+  }
+
+  div.activeuserscontainer {
+    overflow: scroll;
+    height: 400px;
+    background: fixed;  
+    width: 15%;
+    background: url("ubg.png");
+    background-size: cover;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  #messages{
+    width: 90%;
+  }
+
+  .messagerow{
+
+  }
+
+  .column {
+    float: left;
+  }
+  
+  .left {
+    width: 10%;
+
+  }
+
+  .right {
+    width: 20%;
+
+  }
+  
+  .middle {
+    width: 70%;
+
+  }
+  .messagerow:after {
+    content: "";
+    display: table;
+    clear: both;
+    
+  }
+
+  .outrecol {
+    float: left;
+    width: 50%;
+  }
+  
+  .maincontainer:after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .ownmessage {
+    background-color: rgb(0 123 255 / 5%);
+    margin-left: 5%;
+  }
+
+  .othersmessage {
+    background-color: rgb(0 255 196 / 5%);
+
+  }
+
+  .username{
+      
+     
+      font-size: 14px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin-left: 1%;
+      text-align: center;
+      font-weight: bold;
+  }
+  .message{
+     
+      font-size: 14px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 90%;
+      margin-left: 2%;
+      text-align: left;
+  }
+  .timestamp{
+   
+    font-size: 8px;
+    font-weight: lighter;
+    font-style: italic;
+    margin-left: 1%;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  #usersection{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: gainsboro;
+    font-weight: bolder;
+  }
+
+  #connect,#disconnect {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    text-align: center;
+    font-family: Cambria;
+    width: 10%;
+    background-color: rgb(193 160 131 / 50%);
+
+  }
+
+  #send {
+    height: 40px;
+    width: 40px;
+
+  }

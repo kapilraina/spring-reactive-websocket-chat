@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello WebSocket</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="app.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <noscript>
+        <h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+            enabled. Please enable
+            Javascript and reload this page!</h2>
+    </noscript>
+    <div id="main-content" class="container">
+        <div class="usersection">
+            <label id="usersection"></label>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="/logout">Logout</a>
+        </div>
+        <hr />
+        <div class="connectionpanel">
+            <button id="connect">Connect</button>
+            <button id="disconnect">Disconnect</button>
+        </div>
+        <hr />
+        <div class="maincontainer">
+            <div class="messagescontainer outrecol">
+
+            </div>
+            <div class="activeuserscontainer outrecol">
+
+            </div>
+        </div>
+
+        <div class="chatpanel">
+            <input type="text" id="chatmessage" size="100px" placeholder="enter message"/>
+            <img id="send" src="/send.png"/>
+
+        </div>
+        <hr />
+        <hr />
+        <div class="events"></div>
+</body>
+
+</html>
