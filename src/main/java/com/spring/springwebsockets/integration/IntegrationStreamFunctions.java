@@ -34,7 +34,11 @@ public class IntegrationStreamFunctions {
     @Bean
     public Consumer<Flux<Message<?>>> globalchatsubchannel() {
         return cFlux -> {
-            cFlux.log().subscribe(m -> subfmc.send(m));
+
+            cFlux.log().subscribe(m -> {
+                System.out.println("cFlux -> "+ m.getHeaders().getTimestamp());
+                subfmc.send(m);
+            });
             // rabbitsubfmc.subscribeTo(cFlux);
         };
     }

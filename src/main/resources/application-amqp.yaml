@@ -10,7 +10,7 @@ spring:
           binder: rabbit-binder
           destination: ex.globalchatexchange
           content-type: application/json
-          #group: q.globalchatqueue
+          group: q.globalchatqueue
         globalchatsubchannel-in-0:
           binder: rabbit-binder
           destination: ex.globalchatexchange
@@ -20,14 +20,14 @@ spring:
         bindings:
           globalchatpubchannel-out-0:
             producer:
-              exchangeType: direct
+              exchangeType: topic
               bindQueue: false
               declareExchange: false
               queueNameGroupOnly: true
           globalchatsubchannel-in-0:
             consumer:
               bindQueue: false
-              exchangeType: direct
+              exchangeType: topic
               declareExchange: false
               queueNameGroupOnly: true
 
