@@ -7,13 +7,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.integration.channel.FluxMessageChannel;
+import org.springframework.integration.config.EnableIntegration;
 import org.springframework.messaging.Message;
 import reactor.core.publisher.Flux;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-@Profile({"amqp","fuse"})
+@Profile({"amqp","fuse","kafka"})
 @Configuration
 public class IntegrationStreamFunctions {
     @Autowired

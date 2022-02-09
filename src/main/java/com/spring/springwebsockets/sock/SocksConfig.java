@@ -38,7 +38,7 @@ public class SocksConfig {
     private IntegrationFlowContext integrationFlowContext;
 
     @Bean(name = "wshbean8Chat")
-    @Profile({"amqp", "fuse"})
+    @Profile({"amqp", "fuse","kafka"})
     WebSocketHandler wshbean8Chat(
             ChatUtils utils,
             @Qualifier("pubfmc") FluxMessageChannel fmcpub,

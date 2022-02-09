@@ -1,0 +1,44 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition: globalchatpubchannel;globalchatsubchannel
+      source: globalchatpubchannel;globalchatsubchannel
+      bindings:
+        globalchatpubchannel-out-0:
+          destination: to.globalchattopic
+          producer:
+            applicationId: globalchat-app-${server.port}
+        globalchatsubchannel-in-0:
+          destination: to.globalchattopic
+          #group: globalchat-app-consumer-${server.port}
+          consumer:
+            use-native-decoding: true
+            startOffset: latest
+            resetOffsets: true
+            enableDlq: true
+      kafka:
+        binder:
+          brokers: kafka1:9092
+          autoCreateTopics: true
+          autoAddPartitions: true
+          minPartitionCount: 1
+#        bindings:
+#          globalchatpubchannel-in-0:
+#            consumer:
+#          globalchatpubchannel-out-0:
+#            producer:
+
+        streams:
+          binder:
+            #functions:
+            #  globalchatsubchannel:
+            #    applicationId: globalchat-app-${server.port}
+            configuration:
+              commit.interval.ms: 1000
+              startOffset: latest
+              resetOffsets: true
+      default-binder: kafka
+  kafka:
+    consumer:
+      auto-offset-reset: latest

@@ -32,7 +32,7 @@ public class IntegrationConfigs {
 
     @Bean
     @Qualifier("subfmc")
-    @Profile({"amqp","fuse"})
+    @Profile({"amqp","fuse","kafka"})
     FluxMessageChannel subfmc() {
         FluxMessageChannel fmc = new FluxMessageChannel();
         return fmc;

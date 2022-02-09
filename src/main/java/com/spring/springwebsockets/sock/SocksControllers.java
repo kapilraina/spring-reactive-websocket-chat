@@ -141,7 +141,7 @@ public class SocksControllers {
   }
 
   @Bean
-  @Profile({"amqp","fuse"})
+  @Profile({"amqp","fuse","kafka"})
   SimpleUrlHandlerMapping getDefwsh_8() {
     return new SimpleUrlHandlerMapping(Map.of("/ws/chat", wshbean8Chat), 10);
   }

@@ -10,9 +10,9 @@ public class SimpleSubscriber implements Subscriber<Message<?>> {
 
   private FluxSink<Message<ChatMessage>> wsMessageFlux;
 
-  public SimpleSubscriber(FluxSink<Message<ChatMessage>> wsMessageFlux) {
+/*  public SimpleSubscriber(FluxSink<Message<ChatMessage>> wsMessageFlux) {
     this.wsMessageFlux = wsMessageFlux;
-  }
+  }*/
 
   public SimpleSubscriber() {}
 
@@ -25,7 +25,7 @@ public class SimpleSubscriber implements Subscriber<Message<?>> {
   @Override
   public void onNext(Message<?> t) {
     System.out.println("Received in Subscriber "+ t);
-    wsMessageFlux.next((Message<ChatMessage>)t);
+    //wsMessageFlux.next((Message<ChatMessage>)t);
   }
 
   @Override
