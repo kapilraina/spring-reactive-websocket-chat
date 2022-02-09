@@ -37,7 +37,6 @@ public class IntegrationStreamFunctions {
         return cFlux -> {
 
             cFlux.log().subscribe(m -> {
-                System.out.println("cFlux -> "+ m.getHeaders().getTimestamp());
                 subfmc.send(m);
             });
             // rabbitsubfmc.subscribeTo(cFlux);
