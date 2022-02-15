@@ -8,6 +8,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.integration.channel.FluxMessageChannel;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +24,7 @@ public class SpringreactivewebsocketchatApplication {
   }
 
   @Bean
+  @Profile({ "!sink" })
   ApplicationRunner ar(@Qualifier("subfmc") FluxMessageChannel fmcsub) {
     return args -> {
       fmcsub.subscribe(new SimpleSubscriber());

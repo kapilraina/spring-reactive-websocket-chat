@@ -22,7 +22,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.ReactiveSecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,7 +38,6 @@ import reactor.core.publisher.Sinks.Many;
 @RestController
 public class SocksControllers {
 
-
   @Autowired(required = false)
   @Qualifier("wshbean8Chat")
   WebSocketHandler wshbean8Chat;
@@ -55,7 +53,6 @@ public class SocksControllers {
   @Autowired(required = false)
   @Qualifier("wshbean5Chat")
   WebSocketHandler wshbean5Chat;
-
 
   @Autowired(required = false)
   Many<ChatMessage> chatMessageStream;
@@ -141,28 +138,26 @@ public class SocksControllers {
   }
 
   @Bean
-  @Profile({"amqp","fuse","kafka"})
+  @Profile({ "amqp", "fuse", "kafka" })
   SimpleUrlHandlerMapping getDefwsh_8() {
     return new SimpleUrlHandlerMapping(Map.of("/ws/chat", wshbean8Chat), 10);
   }
 
   @Bean
-  @Profile({"localpubsub"})
+  @Profile({ "localpubsub" })
   SimpleUrlHandlerMapping getDefwsh_7() {
     return new SimpleUrlHandlerMapping(Map.of("/ws/chat", wshbean7Chat), 10);
   }
 
   @Bean
-  @Profile({"flowreg"})
+  @Profile({ "flowreg" })
   SimpleUrlHandlerMapping getDefwsh_6() {
     return new SimpleUrlHandlerMapping(Map.of("/ws/chat", wshbean6Chat), 10);
   }
 
   @Bean
-  @Profile({"sink"})
+  @Profile({ "sink" })
   SimpleUrlHandlerMapping getDefwsh_5() {
     return new SimpleUrlHandlerMapping(Map.of("/ws/chat", wshbean5Chat), 10);
   }
-
-
 }
